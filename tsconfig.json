@@ -1,0 +1,14 @@
+{
+    "ts-node": {
+        "compilerOptions": {
+            "module": "commonjs",
+        }
+    },
+    "compilerOptions": {
+        "module": "esnext",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+    }
+}
