@@ -9,7 +9,11 @@ import { resolvers, typeDefs } from "./graphql";
         resolvers,
     });
     
-    const { url } = await startStandaloneServer(server)
+    const { url } = await startStandaloneServer(server, {
+        context: async () => ({
+            data: 'VALUE'
+        })
+    });
     
     console.log(`Server started at: ${url}`);    
 })();
