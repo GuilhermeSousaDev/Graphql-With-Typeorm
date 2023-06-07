@@ -1,0 +1,27 @@
+scalar Date
+
+type User {
+    id: String
+    name: String
+    email: String
+    password: String
+    createdAt: Date
+    updatedAt: Date
+}
+
+type News {
+    id: String
+    title: String
+    content: String
+    user: User
+    createdAt: Date
+    updatedAt: Date
+}
+
+type Query {
+    news: [News]
+}
+
+type Subscription  {
+    newsCreated: News
+}

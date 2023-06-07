@@ -1,5 +1,5 @@
-import { User } from "../entities/User";
-import UserRepository from "../repositories/UserRepository";
+import { User } from "../../entities/User";
+import UserRepository from "../../repositories/UserRepository";
 
 export default class ListUsersService {
     public async execute(): Promise<User[]> {

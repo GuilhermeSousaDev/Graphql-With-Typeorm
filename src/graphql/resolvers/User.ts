@@ -1,8 +1,8 @@
 import { GraphQLScalarType, Kind } from "graphql";
 import { AppDataSource } from "../../typeorm/data-source";
 import { ScalarDate } from "../scalar/Date";
-import ListUsersService from "../../typeorm/services/ListUsersService";
-import CreateUserService from "../../typeorm/services/CreateUserService";
+import ListUsersService from "../../typeorm/services/User/ListUsersService";
+import CreateUserService from "../../typeorm/services/User/CreateUserService";
 
 const listUsersService = new ListUsersService();
 const createUserService = new CreateUserService();
