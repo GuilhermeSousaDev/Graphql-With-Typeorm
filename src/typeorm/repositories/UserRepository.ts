@@ -18,7 +18,7 @@ export default class UserRepository {
     }
 
     public async find(): Promise<User[]> {
-        return this.ormRepository.find();
+        return this.ormRepository.find({ relations: ['news'] });
     }
 
     public async findByEmail(email: string): Promise<User> {

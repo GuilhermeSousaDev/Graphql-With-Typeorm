@@ -25,11 +25,11 @@ export default class NewsRepository {
     }
 
     public async find(): Promise<News[]> {
-        return this.ormRepository.find();
+        return this.ormRepository.find({ relations: ['user'] });
     }
 
     public async findById(id: string): Promise<News> {
-        return this.ormRepository.findOne({ where: { id } });
+        return this.ormRepository.findOne({ where: { id }, relations: ['user'] });
     }
 
     public async delete(news: News): Promise<void> {

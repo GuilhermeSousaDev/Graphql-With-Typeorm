@@ -22,6 +22,12 @@ type Query {
     news: [News]
 }
 
-type Subscription  {
-    newsCreated: News
+input newsInput {
+    title: String
+    content: String
+    user: String
+}
+
+type Mutation {
+    createNews(data: newsInput): News
 }

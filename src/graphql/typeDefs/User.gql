@@ -1,10 +1,20 @@
 scalar Date
 
+type News {
+    id: String
+    title: String
+    content: String
+    user: User
+    createdAt: Date
+    updatedAt: Date
+}
+
 type User {
     id: String
     name: String
     email: String
     password: String
+    news: [News]
     createdAt: Date
     updatedAt: Date
 }
@@ -13,12 +23,12 @@ type Query {
     users: [User]!
 }
 
-input userData {
+input userInput {
     name: String
     email: String
     password: String
 }
 
 type Mutation {
-    createUser(user: userData): User
+    createUser(user: userInput): User
 }
