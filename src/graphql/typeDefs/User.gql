@@ -29,6 +29,17 @@ input userInput {
     password: String
 }
 
+input sessionInput {
+    email: String
+    password: String
+}
+
+type Session {
+    token: String
+    user: User
+}
+
 type Mutation {
     createUser(user: userInput): User
+    createSession(data: sessionInput): Session
 }
