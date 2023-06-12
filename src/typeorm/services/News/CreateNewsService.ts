@@ -1,3 +1,4 @@
+import { verify } from "jsonwebtoken";
 import { News } from "../../entities/News";
 import { User } from "../../entities/User";
 import NewsRepository from "../../repositories/NewsRepository";
@@ -6,16 +7,23 @@ interface ICreateNews {
     title: string;
     content: string;
     user: User;
+    token: string;
 }
 
 export default class CreateNewsService {
     public async execute(data: ICreateNews): Promise<News> {
-        const newsRepository = new NewsRepository();
+        try {
+            verify(data.token, 'privatekey');
 
-        const news = await newsRepository.create(data);
+            const newsRepository = new NewsRepository();
 
-        await newsRepository.save(news);
+            const news = await newsRepository.create(data);
 
-        return news;
+            await newsRepository.save(news);
+
+            return news;
+        } catch (e) {
+            return e;
+        }
     }
 }

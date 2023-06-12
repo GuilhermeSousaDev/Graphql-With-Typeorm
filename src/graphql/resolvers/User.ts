@@ -11,11 +11,7 @@ const createSessionService = new CreateSessionService();
 
 export default {
     Query: {
-        users: async (_, args, context) => {
-            console.log(context);
-
-            return await listUsersService.execute();
-        },
+        users: async () => await listUsersService.execute(),
     },
     Date: ScalarDate,
     Mutation: {

@@ -11,7 +11,12 @@ export default {
     },
     Date: ScalarDate,
     Mutation: {
-        createNews: async (_, { data }) => 
-            await createNewsService.execute(data),
+        createNews: async (_, { data }, { token }) =>
+            await createNewsService.execute({
+                title: data.title,
+                content: data.content,
+                user: data.user,
+                token,
+            }),
     },
 }

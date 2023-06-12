@@ -10,9 +10,9 @@ import { resolvers, typeDefs } from "./graphql";
     });
 
     const { url } = await startStandaloneServer(server, {
-        context: async () => ({
-            data: 'VALUE'
-        })
+        context: async ({ req }) => ({
+            token: req.headers.authorization,
+        }),
     });
 
     console.log(`Server started at: ${url}`);
